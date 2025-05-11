@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Purpose of Account</title>
+  <style>
+    body {
+      font-family: 'Palatino', 'Palatino Linotype', 'Book Antiqua', serif;
+      padding: 40px;
+      background-image: url('https://i.imgur.com/gSKsKLE.gif');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+      color: #fff;
+    }
+
+    h1 {
+      color: #fff;
+      text-shadow: 1px 1px 3px #000;
+      text-align: center;
+    }
+
+    dl {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 15px;
+      border-radius: 10px;
+      max-width: 600px;
+      margin: 30px auto;
+    }
+
+    dt {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    dd {
+      margin-left: 20px;
+      margin-bottom: 10px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      max-width: 900px;
+      margin: 40px auto;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      text-decoration: none;
+      color: #fff;
+      transition: 0.2s ease;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    .card:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: scale(1.05);
+    }
+
+    .card h2 {
+      margin-top: 0;
+    }
+
+    /* Style for the password input box */
+    .password-box {
+      margin-top: 10px;
+    }
+
+    #password-input {
+      width: 200px;
+      padding: 5px;
+      border-radius: 5px;
+      border: none;
+      margin-right: 10px;
+    }
+
+    .show-password {
+      color: blue;
+      cursor: pointer;
+    }
+
+    .error-message {
+      color: red;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Basic Information</h1>
+  <dl>
+    <dt>Name:</dt>
+    <dd>Joshua Edward Kinley</dd>
+
+    <dt>Email:</dt>
+    <dd>kinleyjoshuaedward@gmail.com</dd>
+
+    <dt>Password:</dt>
+    <dd>
+      <span id="password-hidden">••••••••</span>
+      <span id="password-revealed" style="display:none;">obsessions1!1</span>
+      <span class="show-password" onclick="promptForPassword()">Click to Reveal Password</span>
+      <div class="password-box" id="password-box" style="display:none;">
+        <input type="text" id="password-input" placeholder="Enter code to reveal password">
+        <button onclick="checkCode()">Submit</button>
+        <p id="error-message" class="error-message">Incorrect code. Try again!</p>
+      </div>
+    </dd>
+
+    <dt>Purpose:</dt>
+    <dd>Creative pseudonym for poetry, moodboards, and journaling</dd>
+  </dl>
+
+  <h1>Accounts Tied To</h1>
+
+  <div class="grid">
+    <a href="#" class="card">
+      <h2>Obsessed.Obsessions</h2>
+      <p>Poetry posts, photography archive, aesthetic journaling</p>
+    </a>
+
+    <a href="#" class="card">
+      <h2>Obsession's Moods</h2>
+      <p>Pinterest Boards and Aesthetic</p>
+    </a>
+
+    <a href="#" class="card">
+      <h2>Coming soon..</h2>
+      <p>More Accounts</p>
+    </a>
+  </div>
+
+  <script>
+    // Function to show the password entry box
+    function promptForPassword() {
+      document.getElementById("password-box").style.display = "block";
+    }
+
+    // Function to check the entered code
+    function checkCode() {
+      const enteredCode = document.getElementById("password-input").value;
+      const correctCode = "LIOHAHA28";
+      
+      if (enteredCode === correctCode) {
+        // Show the actual password and hide the hidden one
+        document.getElementById("password-revealed").style.display = "inline";
+        document.getElementById("password-hidden").style.display = "none";
+        document.getElementById("error-message").style.display = "none";
+      } else {
+        // Show error message if the code is incorrect
+        document.getElementById("error-message").style.display = "inline";
+      }
+    }
+  </script>
+
+</body>
+</html>
